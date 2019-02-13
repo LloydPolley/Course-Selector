@@ -1,23 +1,30 @@
 import React from "react";
 import CourseForm from "./CourseForm";
 import "../styles/nav.css";
+import { connect } from "react-redux";
+import { addCourse } from '../actions/course';
 
-class AddCourse extends React.Component{
-
-  onSubmit = () => {
-    //Submit to redux
-    console.log('add to redux');
-  }
-  render(){
-    return (
-      <div className="page-container">
-        <div className="page-title">
-          <h1>Add Course</h1>
-        </div>
-        <CourseForm onSubmit={this.onSubmit}/>
+const AddCourse = (props) => {
+  return (
+    <div className="page-container">
+      <div className="page-title">
+        <h1>Add Course</h1>
       </div>
-    );
-  }
-}
+      <CourseForm 
+      submit={(course)=>{
+        console.log(course)
+        props.dispatch(addCourse(
+          course.courseLang,
+          course.courseName,
+          course.coursePrice,
+          course.courseLength,
+          course.courseDescription,
+          course.school = ''
+        ));
+        props.history.push('/');
+      }} />
+    </div>
+  );
+};
 
-export default AddCourse;
+export default connect()(AddCourse);

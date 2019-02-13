@@ -17,17 +17,17 @@ store.subscribe(() => {
     console.log(visibleState, 'visable state');
 })
 
-const course1 = store.dispatch(addCourse('fr', 'tutorial', 1000, '2weeks', 'dfghjk', 'z'));
-const course2 = store.dispatch(addCourse('en', 'quatorial', 1000, '2weeks', 'dsd', 'a'));
-const course3 = store.dispatch(addCourse('fr', 'oct', 200, '2weeks', 'dsd', 'g'));
-const course5 = store.dispatch(addCourse('es', 'oct', 200, '2weeks', 'dsd', 'w'));
-const course4 = store.dispatch(addCourse('en', 'oct', 200, '2weeks', 'dsd', 'q'));
+// const course1 = store.dispatch(addCourse('fr', 'Course 1', 1000, '2 week', 'dfghjk', 'oxford'));
+// const course2 = store.dispatch(addCourse('en', 'Course 2', 1000, '2 week', 'dsd', 'cambridge'));
+// const course3 = store.dispatch(addCourse('fr', 'Course 3', 200, '2 Week', 'dsd', 'boston'));
+// const course5 = store.dispatch(addCourse('es', 'Course 4', 200, '1 Week', 'dsd', 'oxford'));
+// const course4 = store.dispatch(addCourse('en', 'Course 5', 200, '3 Week', 'dsd', 'cambridge'));
 
 // store.dispatch(removeCourse({id: course1.course.id}));
 // store.dispatch(editCourse(course2.course.id, { coursePrice: 500 }));
 
-store.dispatch(sortBySchool())
-store.dispatch(sortByLanguage())
+// store.dispatch(sortBySchool())
+// store.dispatch(sortByLanguage())
 // store.dispatch(setTextFilter(''));
 
 
