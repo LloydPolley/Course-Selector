@@ -1,0 +1,25 @@
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+select,
+input,
+textarea,
+button{
+    margin: .2em 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+select{
+}
+
+button{
+    background-color: rgb(6, 6, 78);
+    font-size: 1em;
+    color: white;
+}
