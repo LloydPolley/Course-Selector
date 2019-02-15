@@ -19,7 +19,7 @@ const AddCourse = (props) => {
           course.coursePrice,
           course.courseLength,
           course.courseDescription,
-          course.school = ''
+          course.school
         ));
         props.history.push('/');
       }} />

@@ -7,7 +7,6 @@ import CourseItem from './CourseItem';
 
 const CourseList = (props) => (
     <div>
-        CourseList
         {props.courses.map((course)=>{
             return <CourseItem key={course.id} course={course}/>
         })}

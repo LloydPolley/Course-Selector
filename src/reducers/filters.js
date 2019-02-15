@@ -20,6 +20,11 @@ const filtersReducer = (state = filtersDefaultState, action) => {
         ...state,
         sortBy: action.sortBy
       }
+    case 'SORT_BY_COURSENAME':
+      return {
+        ...state,
+        sortBy: action.sortBy
+      }
     default:
       return state;
   }

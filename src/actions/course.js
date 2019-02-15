@@ -1,6 +1,21 @@
 import uuid from "uuid";
 
 
+//Redux way
+
+//component calls action generator
+//action generator generates object returning it
+//component dispatches object
+//redux store updates 
+
+
+//Firebase way
+
+//component calls action generator
+//action generator generates FUNCTION returning it
+//component dispatches FUNCTION
+//function runs
+
 export const addCourse = (
   courseLang = "en",
   courseName = "",
@@ -37,12 +52,13 @@ export const getVisibleCourses = (courses, filters) => {
         return course.courseName.toLowerCase().includes(filters.text.toLowerCase());
     }).sort((a,b)=> {
         if(filters.sortBy === 'language'){
-            console.log('language order');
             return a.courseLang > b.courseLang ? 1 : -1;
         }
         if(filters.sortBy === 'school'){
-            console.log('school order');
             return a.school > b.school ? 1 : -1; 
+        }
+        if(filters.sortBy === 'courseName'){
+            return a.courseName > b.courseName ? 1 : -1; 
         }
     })
 }

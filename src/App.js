@@ -5,6 +5,8 @@ import {Provider} from 'react-redux';
 
 import store from './store/store';
 
+import { database } from './firebase/firebase';
+
 
 class App extends Component {
   render() {
@@ -15,5 +17,10 @@ class App extends Component {
     );
   }
 }
+
+console.log(database);
+database.ref().push({
+  age: 10
+})
 
 export default App;

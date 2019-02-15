@@ -1,29 +1,38 @@
 
 .nav{
-    position: absolute;
-    top: 0;
-    left: 0;
     background-color: rgb(6, 6, 78);
-    width: 15%;
     height: 100vh;
     color: white;
     display: inline-block;
     position: fixed;
-    min-width: 300px;
+    min-width: 150px;
 }
 
 .nav a{
     color: white;
     display: block;
+    text-align: center;
+    border: 1px solid white;
+    margin: 1em;
+    text-decoration: none;
+    padding: 1em;
+    border-radius: 5px;
+    transition: 0.2s ease all;
+}
+.nav a:hover{
+    color: grey;
 }
 
 .page-container{
-    position: absolute;
-    top: 0;
-    left: 15%;
     padding: 1em;
     display: inline-block;
-    width: 81%;
+    background-color: white;
+    margin-left: 150px;
     max-width: 1200px;
+    width: 72%;
+}
+
+.is-active{
+    color: rgb(6, 6, 78) !important;
     background-color: white;
 }

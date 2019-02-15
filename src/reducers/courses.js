@@ -1,6 +1,3 @@
-import { addCourse } from '../actions/course';
-
-
 const coursesReducerDefaultState = []
 const coursesReducer = ( state = coursesReducerDefaultState, action ) => {
     switch(action.type){

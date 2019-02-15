@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 import '../styles/CourseForm.css'
 
@@ -69,13 +68,19 @@ class CourseForm extends React.Component {
             <option>ES</option>
           </select>
           <input placeholder="Course name" onChange={this.onCourseName} value={this.state.courseName}/>
-          <input placeholder="Price" onChange={this.onPrice} value={this.state.coursePrice}/>
+          <input placeholder="1 Week Price" onChange={this.onPrice} value={this.state.coursePrice}/>
           <select value={this.state.courseLength} onChange={this.onLength}>
-            <option value='no-value' disabled>Select length of course</option>
-            <option value='1 week'>1 Week</option>
-            <option value='2 week'>2 Week</option>
-            <option value='3 week'>3 Week</option>
-            <option value='4 week'>4 Week</option>
+            <option value='no-value' disabled>Up to weeks Available</option>
+            <option value='1 week'>1 Weeks</option>
+            <option value='2 week'>2 Weeks</option>
+            <option value='3 week'>3 Weeks</option>
+            <option value='4 week'>4 Weeks</option>
+            <option value='5 week'>5 Weeks</option>
+            <option value='6 week'>6 Weeks</option>
+            <option value='7 week'>7 Weeks</option>
+            <option value='8 week'>8 Weeks</option>
+            <option value='9 week'>9 Weeks</option>
+            <option value='10 week'>10 Weeks</option>
           </select>
           
           <textarea placeholder="Course description" onChange={this.onCourseDescription} value={this.state.courseDescription}/>
@@ -87,7 +92,7 @@ class CourseForm extends React.Component {
             <option value='boston'>Boston</option>
             <option value='telford'>Telford</option>
           </select>
-          <button onClick={this.onSubmit}>Add</button>
+          <button onClick={this.onSubmit}>+</button>
         </form>
       </div>
     );

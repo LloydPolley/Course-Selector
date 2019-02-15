@@ -15,4 +15,9 @@ export const sortBySchool = () => ({
     sortBy: 'school'
 });
 
+export const sortByCourseName = () => ({
+    type: 'SORT_BY_COURSENAME',
+    sortBy: 'courseName'
+});
+
 
