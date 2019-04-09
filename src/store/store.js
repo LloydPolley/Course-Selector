@@ -22,9 +22,9 @@ store.dispatch(
   addCourse("fr", "tutorial 1", 1000, "2 week", "dfghjk", "oxford")
 );
 store.dispatch(addCourse("en", "octorial 2", 1000, "2 week", "dsd", "Taunton"));
-store.dispatch(addCourse("fr", "quatorial 7", 200, "2 Week", "dsd", "boston"));
-store.dispatch(addCourse("es", "Course 4", 200, "1 Week", "dsd", "oxford"));
-store.dispatch(addCourse("en", "tutor 5", 200, "3 Week", "dsd", "cambridge"));
+store.dispatch(addCourse("fr", "quatorial 7", 200, "2 Week", "dsd", "Boston"));
+store.dispatch(addCourse("es", "Course 4", 200, "1 Week", "dsd", "Oxford"));
+store.dispatch(addCourse("en", "tutor 5", 200, "3 Week", "dsd", "Cambridge"));
 
 // store.dispatch(removeCourse({id: course1.course.id}));
 // store.dispatch(editCourse(course2.course.id, { coursePrice: 500 }));
