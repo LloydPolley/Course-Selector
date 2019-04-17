@@ -6,7 +6,7 @@ import { addCourse } from '../actions/course';
 
 const AddCourse = (props) => {
   return (
-    <div className="page-container">
+    <div className="page-container"> 
       <div className="page-title">
         <h1>Add Course</h1>
       </div>

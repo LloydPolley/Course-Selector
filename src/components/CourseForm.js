@@ -1,6 +1,7 @@
 import React from "react";
 
 import '../styles/CourseForm.css'
+import SchoolList from '../components/SchoolList';
 
 class CourseForm extends React.Component {
   constructor(props) {
@@ -84,14 +85,7 @@ class CourseForm extends React.Component {
           </select>
           
           <textarea placeholder="Course description" onChange={this.onCourseDescription} value={this.state.courseDescription}/>
-
-          <select value={this.state.school} onChange={this.onSchool}>
-            <option value='no-value' disabled>Select school</option>
-            <option value='oxford'>Oxford</option>
-            <option value='cambridge'>Cambridge</option>
-            <option value='boston'>Boston</option>
-            <option value='telford'>Telford</option>
-          </select>
+          <SchoolList value={this.state.school} onChange={this.onSchool}/>
           <button onClick={this.onSubmit}>+</button>
         </form>
       </div>

@@ -23,7 +23,7 @@ function addSchool(schoolName) {
   database.ref(`schools/`).push(schoolName);
 }
 database.ref().on('value', function(snapshot){
-  console.log(snapshot.val());
+  // console.log(snapshot.val());
 })
 addSchool('London');
 addSchool('la');
