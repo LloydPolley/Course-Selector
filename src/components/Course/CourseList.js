@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 
-import { getVisibleCourses } from '../actions/course';
+import { getVisibleCourses } from '../../actions/course';
 import CourseItem from './CourseItem';
 
 

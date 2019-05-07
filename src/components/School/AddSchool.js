@@ -1,26 +1,29 @@
 import React from "react";
-import "../styles/nav.css";
+import "../../styles/nav.css";
+import "../../styles/schools.css";
 import { connect } from "react-redux";
-import { addSchool } from '../actions/school';
+import { addSchool } from '../../actions/school';
+import SchoolEditList from './SchoolEditList';
 
 
 class AddSchool extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            school: ''
+            newSchool: '',
+            schools: {}
         }
     }
     onClick = (e) =>{
         e.preventDefault();
-        this.props.dispatch(addSchool(this.state.school));
+        this.props.dispatch(addSchool(this.state.newSchool));
         // console.log(this.props)
-        this.props.history.push('/');
+        // this.props.history.push('/');
 
     }
     getSchool = (e) => {
         this.setState({
-            school: e.target.value
+            newSchool: e.target.value
         },()=>{
             console.log(this.state);
         });
@@ -28,7 +31,8 @@ class AddSchool extends React.Component {
     render(){
         return(
             <div className='page-container'>
-                <h1>Add school</h1>
+                <h1>Edit school</h1>
+                <SchoolEditList/>
                 <form>
                     <input onChange={(e) =>{
                         this.getSchool(e);
@@ -36,10 +40,17 @@ class AddSchool extends React.Component {
                     <button onClick={(e)=>{
                         this.onClick(e);
                     }}>Add School</button>
-                </form>
+                </form> 
             </div>
         );
     }
 }
 
-export default connect()(AddSchool);
+const mapStateToProps = state => {
+    console.log(state.schools, "school");
+    return {
+        schools: state.schools
+    };
+  };
+
+export default connect(mapStateToProps)(AddSchool);

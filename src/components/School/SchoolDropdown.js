@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getVisibleSchools } from "../actions/school";
-import '../styles/CourseForm.css'
+import '../../styles/CourseForm.css'
 
-const SchoolList = props => (
+const SchoolDropdown = props => (
     <select value={props.value} onChange={props.onChange}>
       <option value="no-value" disabled>
         Select school
@@ -16,10 +15,10 @@ const SchoolList = props => (
 );
 
 const mapStateToProps = state => {
-  console.log(state);
+  console.log(state.schools, 'schoolList');
   return {
-    schools: getVisibleSchools(state.schools)
+    schools: state.schools
   };
 };
 
-export default connect(mapStateToProps)(SchoolList);
+export default connect(mapStateToProps)(SchoolDropdown);

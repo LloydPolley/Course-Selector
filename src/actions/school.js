@@ -16,14 +16,15 @@ import uuid from "uuid";
 
 export const addSchool = (school = "") => ({
   type: "ADD_SCHOOL",
+  id:uuid(),
   school
 });
 
-export const removeSchool = school => ({
+export const removeSchool = (id) => ({
   type: "REMOVE_SCHOOL",
-  school
+  id
 });
 
-export const getVisibleSchools = (schools) => {
+export const getSchools = (schools) => {
   return schools
 };

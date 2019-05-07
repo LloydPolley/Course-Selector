@@ -1,8 +1,8 @@
 import React from "react";
-import CourseForm from "./CourseForm";
-import "../styles/nav.css";
+import CourseForm from "../Course/CourseForm";
+import "../../styles/nav.css";
 import { connect } from "react-redux";
-import { addCourse } from '../actions/course';
+import { addCourse } from '../../actions/course';
 
 const AddCourse = (props) => {
   return (
@@ -12,7 +12,7 @@ const AddCourse = (props) => {
       </div>
       <CourseForm 
       submit={(course)=>{
-        console.log(course)
+        console.log(course, 'course');
         props.dispatch(addCourse(
           course.courseLang,
           course.courseName,
