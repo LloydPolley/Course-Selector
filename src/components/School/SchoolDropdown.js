@@ -9,7 +9,7 @@ const SchoolDropdown = props => (
         Select school
       </option>
       {props.schools.map(school => {
-        return <option>{school}</option>;
+        return <option key={school}>{school}</option>;
       })}
     </select>
 );

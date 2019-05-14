@@ -20,11 +20,12 @@ export const addSchool = (school = "") => ({
   school
 });
 
-export const removeSchool = (id) => ({
+export const removeSchool = (school) => ({
   type: "REMOVE_SCHOOL",
-  id
+  school
 });
 
-export const getSchools = (schools) => {
-  return schools
-};
+export const getSchools = (schools) => ({
+  type: 'GET_SCHOOLS',
+  schools
+});

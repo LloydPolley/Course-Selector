@@ -13,14 +13,14 @@ const AddCourse = (props) => {
       <CourseForm 
       submit={(course)=>{
         console.log(course, 'course');
-        props.dispatch(addCourse(
-          course.courseLang,
-          course.courseName,
-          course.coursePrice,
-          course.courseLength,
-          course.courseDescription,
-          course.school
-        ));
+        props.dispatch(addCourse({
+          courseLang: course.courseLang,
+          courseName: course.courseName,
+          coursePrice: course.coursePrice,
+          courseLength: course.courseLength,
+          courseDescription: course.courseDescription,
+          courseSchool: course.school
+        }));
         props.history.push('/');
       }} />
     </div>

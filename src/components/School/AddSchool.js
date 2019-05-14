@@ -47,7 +47,7 @@ class AddSchool extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state.schools, "school");
+    console.log(state.schools, "Add SChool page");
     return {
         schools: state.schools
     };
