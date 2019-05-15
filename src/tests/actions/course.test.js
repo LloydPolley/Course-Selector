@@ -53,3 +53,82 @@ test ('Returns object with course information', ()=>{
         }
     });
 });
+test ('Returns object with course information', ()=>{
+    const data = {}
+    expect(addCourse(data)).toEqual({
+        type: 'ADD_COURSE',
+        course: {
+            courseLang: "en",
+            courseName: "",
+            coursePrice : "",
+            courseLength : "",
+            courseDescription : "",
+            school: '',
+            id: expect.any(String)
+        }
+    });
+});
+
+const courses = [
+    {
+        courseLang: "a",
+        courseName: "a",
+        coursePrice : "10",
+        courseLength : "1",
+        courseDescription : "a",
+        school: 'c',
+        id: 1
+    },
+    {
+        courseLang: "c",
+        courseName: "c",
+        coursePrice : "10",
+        courseLength : "1",
+        courseDescription : "c",
+        school: 'a',
+        id: 3
+    },
+    {
+        courseLang: "b",
+        courseName: "b",
+        coursePrice : "10",
+        courseLength : "1",
+        courseDescription : "b",
+        school: 'b',
+        id: 2
+    }
+]
+
+//getVisibleCourses
+
+test ('sort courses by School', ()=>{
+    const filters = {
+        text: '',
+        sortBy: 'school'
+    }
+    expect(getVisibleCourses(courses, filters)).toEqual([courses[1], courses[2], courses[0]]);
+});
+
+test ('sort courses by language', ()=>{
+    const filters = {
+        text: '',
+        sortBy: 'language'
+    }
+    expect(getVisibleCourses(courses, filters)).toEqual([courses[0], courses[2], courses[1]]);
+});
+
+test ('sort courses by courseName', ()=>{
+    const filters = {
+        text: '',
+        sortBy: 'courseName'
+    }
+    expect(getVisibleCourses(courses, filters)).toEqual([courses[0], courses[2], courses[1]]);
+});
+
+test ('sort courses by courseName', ()=>{
+    const filters = {
+        text: 'b',
+        sortBy: 'courseName'
+    }
+    expect(getVisibleCourses(courses, filters)).toEqual([courses[2]]);
+});

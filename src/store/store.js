@@ -5,6 +5,7 @@ import schoolsReducer from '../reducers/schools';
 
 import { addCourse, getVisibleCourses } from "../actions/course";
 import { addSchool, removeSchool, getSchools } from '../actions/school';
+import {sortBySchool} from '../actions/filters';
 
 const store = createStore(
   combineReducers({
@@ -33,6 +34,8 @@ store.dispatch(addSchool('Oxford'));
 store.dispatch(addSchool('Taunton'));
 store.dispatch(addSchool('Cambridge'));
 store.dispatch(addSchool('Boston'));
+
+store.dispatch(sortBySchool());
 
 // store.dispatch(getSchools());
 

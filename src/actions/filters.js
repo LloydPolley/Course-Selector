@@ -1,23 +1,20 @@
 
 
-export const setTextFilter = (search) => ({
+export const setTextFilter = (text) => ({
     type: 'SET_TEXT_FILTER',
-    search
+    text
 });
 
 export const sortByLanguage = () => ({
-    type: 'SORT_BY_LANGUAGE',
-    sortBy: 'language'
+    type: 'SORT_BY_LANGUAGE'
 });
 
 export const sortBySchool = () => ({
-    type: 'SORT_BY_SCHOOL',
-    sortBy: 'school'
+    type: 'SORT_BY_SCHOOL'
 });
 
 export const sortByCourseName = () => ({
-    type: 'SORT_BY_COURSENAME',
-    sortBy: 'courseName'
+    type: 'SORT_BY_COURSENAME'
 });
 
 

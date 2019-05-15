@@ -7,7 +7,7 @@ import uuid from "uuid";
 //component dispatches object
 //redux store updates
 
-//Firebase way
+//Firebase way 
 
 //component calls action generator
 //action generator generates FUNCTION returning it

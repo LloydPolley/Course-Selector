@@ -8,22 +8,22 @@ const filtersReducer = (state = filtersDefaultState, action) => {
     case "SET_TEXT_FILTER":
       return {
         ...state,
-        text: action.search
+        text: action.text
       }
     case 'SORT_BY_LANGUAGE':
       return {
         ...state,
-        sortBy: action.sortBy
+        sortBy: 'language'
       }
     case 'SORT_BY_SCHOOL':
       return {
         ...state,
-        sortBy: action.sortBy
+        sortBy: 'school'
       }
     case 'SORT_BY_COURSENAME':
       return {
         ...state,
-        sortBy: action.sortBy
+        sortBy: 'courseName'
       }
     default:
       return state;
