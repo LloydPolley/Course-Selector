@@ -1,13 +1,17 @@
 import { createStore, combineReducers } from "redux";
 import coursesReducer from "../reducers/courses";
 import filtersReducer from "../reducers/filters";
+import schoolsReducer from '../reducers/schools';
 
 import { addCourse, getVisibleCourses } from "../actions/course";
+import { addSchool, removeSchool, getSchools } from '../actions/school';
+import {sortBySchool} from '../actions/filters';
 
 const store = createStore(
   combineReducers({
     courses: coursesReducer,
-    filters: filtersReducer
+    filters: filtersReducer,
+    schools: schoolsReducer
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
@@ -15,16 +19,27 @@ const store = createStore(
 store.subscribe(() => {
   var state = store.getState();
   const visibleState = getVisibleCourses(state.courses, state.filters);
-  console.log(visibleState, "visable state");
+  console.log("Redux Store", state);
 });
 
-store.dispatch(
-  addCourse("fr", "tutorial 1", 1000, "2 week", "dfghjk", "oxford")
-);
-store.dispatch(addCourse("en", "octorial 2", 1000, "2 week", "dsd", "Taunton"));
-store.dispatch(addCourse("fr", "quatorial 7", 200, "2 Week", "dsd", "Boston"));
-store.dispatch(addCourse("es", "Course 4", 200, "1 Week", "dsd", "Oxford"));
-store.dispatch(addCourse("en", "tutor 5", 200, "3 Week", "dsd", "Cambridge"));
+store.dispatch(addCourse({courseLang: "fr", courseName: "tutorial 1", coursePrice: 1000, courseLength: "2 week", courseDescription:"dfghjk", school: "Taunton"}));
+store.dispatch(addCourse({courseLang: "en", courseName: "tutorial 2", coursePrice: 500, courseLength: "4 week", courseDescription:"aaa", school: "Oxford"}));
+store.dispatch(addCourse({courseLang: "de", courseName: "tutorial 3", coursePrice: 465, courseLength: "5 week", courseDescription:"sss", school: "London"}));
+store.dispatch(addCourse({courseLang: "fr", courseName: "tutorial 4", coursePrice: 386, courseLength: "6 week", courseDescription:"ddd", school: "Cambridge"}));
+store.dispatch(addCourse({courseLang: "fr", courseName: "tutorial 15", coursePrice: 673, courseLength: "8 week", courseDescription:"ccc", school: "Oxford"}));
+
+
+store.dispatch(addSchool('London'));
+store.dispatch(addSchool('Oxford'));
+store.dispatch(addSchool('Taunton'));
+store.dispatch(addSchool('Cambridge'));
+store.dispatch(addSchool('Boston'));
+
+store.dispatch(sortBySchool());
+
+// store.dispatch(getSchools());
+
+// store.dispatch(removeSchool('London'));
 
 // store.dispatch(removeCourse({id: course1.course.id}));
 // store.dispatch(editCourse(course2.course.id, { coursePrice: 500 }));

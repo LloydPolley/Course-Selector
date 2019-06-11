@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../styles/CourseItem.css";
+import "../../styles/CourseItem.css";
 
 const CourseItem = props => (
   <div className="courseItem">

@@ -16,14 +16,14 @@ import uuid from "uuid";
 //component dispatches FUNCTION
 //function runs
 
-export const addCourse = (
+export const addCourse = ({
   courseLang = "en",
   courseName = "",
   coursePrice = "",
   courseLength = "",
   courseDescription = "",
   school = ''
-) => ({
+}) => ({
   type: "ADD_COURSE",
   course: {
     id: uuid(),

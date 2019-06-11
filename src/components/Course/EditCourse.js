@@ -1,8 +1,8 @@
 import React from "react";
 import CourseForm from "./CourseForm";
-import "../styles/nav.css";
+import "../../styles/nav.css";
 import { connect } from 'react-redux';
-import { editCourse } from "../actions/course";
+import { editCourse, removeCourse } from "../../actions/course";
 
 const EditCourse = (props) => {
   return (
@@ -21,6 +21,12 @@ const EditCourse = (props) => {
         }));
         props.history.push('/');
       }} />
+     <button onClick={()=>{
+       console.log(props.course.id);
+       console.log(props.course);
+       props.dispatch(removeCourse({id: props.course.id}));
+       props.history.push('/');
+     }}>Delete course</button>
     </div>
   );
 };
@@ -29,7 +35,6 @@ const mapStateToProps = (state, props) => {
   return {
     course: state.courses.find((course)=>{
         if(course.id === props.match.params.id){
-            console.log(course);
             return course
         }
     })

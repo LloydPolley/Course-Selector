@@ -1,6 +1,6 @@
 import React from "react";
-import CourseList from './CourseList';
-import CourseFilters from './CourseFilters';
+import CourseList from './Course/CourseList';
+import CourseFilters from './Course/CourseFilters';
 import "../styles/dashboard.css";
 
 

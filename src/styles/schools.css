@@ -1,0 +1,19 @@
+
+.school-list{
+    width: 50%;
+    padding: 0;
+}
+
+.school-list li{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: .5em;
+}
+.school-list p{
+    font-size: 1.5em;
+}

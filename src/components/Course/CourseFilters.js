@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { sortByLanguage, sortBySchool, sortByCourseName, setTextFilter } from "../actions/filters";
+import { sortByLanguage, sortBySchool, sortByCourseName, setTextFilter } from "../../actions/filters";
 
 class CourseFilters extends React.Component {
   constructor(props) {
