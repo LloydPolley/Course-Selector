@@ -1,7 +1,8 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import coursesReducer from "../reducers/courses";
 import filtersReducer from "../reducers/filters";
 import schoolsReducer from '../reducers/schools';
+import thunk from 'redux-thunk';
 
 import { addCourse, getVisibleCourses } from "../actions/course";
 import { addSchool, removeSchool, getSchools } from '../actions/school';
@@ -27,7 +28,7 @@ store.dispatch(addCourse({courseLang: "en", courseName: "tutorial 2", coursePric
 store.dispatch(addCourse({courseLang: "de", courseName: "tutorial 3", coursePrice: 465, courseLength: "5 week", courseDescription:"sss", school: "London"}));
 store.dispatch(addCourse({courseLang: "fr", courseName: "tutorial 4", coursePrice: 386, courseLength: "6 week", courseDescription:"ddd", school: "Cambridge"}));
 store.dispatch(addCourse({courseLang: "fr", courseName: "tutorial 15", coursePrice: 673, courseLength: "8 week", courseDescription:"ccc", school: "Oxford"}));
-
+ 
 
 store.dispatch(addSchool('London'));
 store.dispatch(addSchool('Oxford'));

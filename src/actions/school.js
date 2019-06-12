@@ -5,7 +5,7 @@ import uuid from "uuid";
 //component calls action generator
 //action generator generates object returning it
 //component dispatches object
-//redux store updates
+//redux store updates 
 
 //Firebase way 
 

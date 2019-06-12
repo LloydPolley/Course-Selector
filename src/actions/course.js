@@ -14,7 +14,7 @@ import uuid from "uuid";
 //component calls action generator
 //action generator generates FUNCTION returning it
 //component dispatches FUNCTION
-//function runs
+//function runs 
 
 export const addCourse = ({
   courseLang = "en",
