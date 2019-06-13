@@ -2,7 +2,7 @@ import React from "react";
 import CourseForm from "../Course/CourseForm";
 import "../../styles/nav.css";
 import { connect } from "react-redux";
-import { addCourse } from '../../actions/course';
+import { startAddCourse } from '../../actions/course';
 
 const AddCourse = (props) => {
   return (
@@ -13,7 +13,7 @@ const AddCourse = (props) => {
       <CourseForm 
       submit={(course)=>{
         console.log(course, 'course');
-        props.dispatch(addCourse({
+        props.dispatch(startAddCourse({
           courseLang: course.courseLang,
           courseName: course.courseName,
           coursePrice: course.coursePrice,

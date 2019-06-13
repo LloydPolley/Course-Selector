@@ -1,5 +1,5 @@
 import uuid from "uuid";
-
+import database from '../firebase/firebase';
 
 //Redux way
 
@@ -16,25 +16,30 @@ import uuid from "uuid";
 //component dispatches FUNCTION
 //function runs 
 
-export const addCourse = ({
-  courseLang = "en",
-  courseName = "",
-  coursePrice = "",
-  courseLength = "",
-  courseDescription = "",
-  school = ''
-}) => ({
+export const addCourse = (course) => ({
   type: "ADD_COURSE",
-  course: {
-    id: uuid(),
-    courseLang,
-    courseName,
-    coursePrice,
-    courseLength,
-    courseDescription,
-    school
-  }
+  course
 });
+
+export const startAddCourse = (expenseData = {}) => {
+    return (dispatch) => {
+        const {
+            courseLang = "en",
+            courseName = "",
+            coursePrice = "",
+            courseLength = "",
+            courseDescription = "",
+            school = ''
+        } = expenseData;
+        const course = {courseLang, courseName, coursePrice, courseLength, courseDescription, school}
+        database.ref('courses').push(course).then((ref)=>{
+            dispatch(addCourse({
+                id: ref.key,
+                ...course
+            }))
+        });
+    }
+}
 
 export const editCourse = (id, updates) => ({
     type: 'EDIT_COURSE',
@@ -62,3 +67,26 @@ export const getVisibleCourses = (courses, filters) => {
         }
     })
 }
+
+
+export const setCourses = (courses) => ({
+    type: 'SET_COURSES',
+    courses
+});
+
+export const startSetCourses = () => {
+    return (dispatch) => {
+        return database.ref('courses').once('value').then((snapshot)=>{
+            const courses = [];
+
+            snapshot.forEach((childSnapshot)=>{
+                courses.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                })
+            })
+            dispatch(setCourses(courses));
+        })
+    }
+};
+

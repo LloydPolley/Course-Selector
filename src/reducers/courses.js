@@ -6,6 +6,8 @@ const coursesReducer = ( state = coursesReducerDefaultState, action ) => {
                 ...state,
                 action.course
             ]
+        case 'SET_COURSES':
+            return action.courses
         case 'REMOVE_COURSE':
             return state.filter(({ id }) => {
                 return id !== action.id;
