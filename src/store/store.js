@@ -19,19 +19,11 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 
-<<<<<<< HEAD
 // store.subscribe(() => {
 //   var state = store.getState();
 //   const visibleState = getVisibleCourses(state.courses, state.filters);
 //   console.log("Redux Store", state);
 // });
-=======
-store.subscribe(() => {
-  var state = store.getState();
-  const visibleState = getVisibleCourses(state.courses, state.filters);
-  console.log("Redux Store", state);
-});
->>>>>>> master
 
 // store.dispatch(addCourse({courseLang: "fr", courseName: "tutorial 1", coursePrice: 1000, courseLength: "2 week", courseDescription:"dfghjk", school: "Taunton"}));
 // store.dispatch(addCourse({courseLang: "en", courseName: "tutorial 2", coursePrice: 500, courseLength: "4 week", courseDescription:"aaa", school: "Oxford"}));
