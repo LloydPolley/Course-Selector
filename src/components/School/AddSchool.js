@@ -1,9 +1,12 @@
 import React from "react";
+import ReactDOM from 'react-dom';
+
 import "../../styles/nav.css";
 import "../../styles/schools.css";
 import { connect } from "react-redux";
-import { addSchool } from '../../actions/school';
+import { startAddSchool, startSetSchools, getSchools, addSchool } from '../../actions/school';
 import SchoolEditList from './SchoolEditList';
+
 
 
 class AddSchool extends React.Component {
@@ -14,31 +17,21 @@ class AddSchool extends React.Component {
             schools: {}
         }
     }
-    onClick = (e) =>{
-        e.preventDefault();
-        this.props.dispatch(addSchool(this.state.newSchool));
-        // console.log(this.props)
-        // this.props.history.push('/');
-
-    }
-    getSchool = (e) => {
-        this.setState({
-            newSchool: e.target.value
-        },()=>{
-            console.log(this.state);
-        });
-    }
+    
     render(){
         return(
-            <div className='page-container'>
+            <div id="school-container" className='page-container'>
                 <h1>Edit school</h1>
                 <SchoolEditList/>
                 <form>
                     <input onChange={(e) =>{
-                        this.getSchool(e);
+                        this.setState({
+                            newSchool: e.target.value
+                        });
                     }} placeholder='New school'/>
                     <button onClick={(e)=>{
-                        this.onClick(e);
+                        e.preventDefault();
+                        this.props.dispatch(addSchool(this.state.newSchool));
                     }}>Add School</button>
                 </form> 
             </div>
@@ -46,11 +39,19 @@ class AddSchool extends React.Component {
     }
 }
 
+
+
 const mapStateToProps = state => {
-    console.log(state.schools, "Add SChool page");
+    console.log('school',state)
     return {
-        schools: state.schools
+        schools: getSchools()
     };
-  };
+};
+
+// const mapStateToProps = (state) => {
+//     return{
+//         courses: getVisibleCourses(state.courses, state.filters)
+//     }
+// }
 
 export default connect(mapStateToProps)(AddSchool);

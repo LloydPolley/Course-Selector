@@ -1,6 +1,5 @@
 import uuid from "uuid";
 import database from '../firebase/firebase';
-
 //Redux way
 
 //component calls action generator
@@ -40,6 +39,14 @@ export const startAddCourse = (expenseData = {}) => {
         });
     }
 }
+export const startRemoveCourse = (id) => {
+    return (dispatch) => {
+        return database.ref('courses').child(id).remove().then((ref)=>{
+            dispatch(removeCourse({id}));
+        });
+    }
+}
+
 
 export const editCourse = (id, updates) => ({
     type: 'EDIT_COURSE',
@@ -51,6 +58,15 @@ export const removeCourse = ({id}) => ({
     type: 'REMOVE_COURSE',
     id
 });
+
+export const startEditCourse = (id, updates) => {
+    return (dispatch) => {
+        return database.ref('courses').child(id).update(updates).then((ref)=>{
+            dispatch(editCourse(id, updates));
+        });
+    }
+}
+  
 
 export const getVisibleCourses = (courses, filters) => {
     return courses.filter((course)=>{
@@ -78,13 +94,14 @@ export const startSetCourses = () => {
     return (dispatch) => {
         return database.ref('courses').once('value').then((snapshot)=>{
             const courses = [];
+            console.log('start set course run')
 
             snapshot.forEach((childSnapshot)=>{
                 courses.push({
                     id: childSnapshot.key,
                     ...childSnapshot.val()
                 })
-            })
+            });
             dispatch(setCourses(courses));
         })
     }

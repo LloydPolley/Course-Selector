@@ -12,6 +12,8 @@ const schoolsReducer = ( state = schoolsReducerDefaultState, action ) => {
             return state.filter((school) => {
                 return school !== action.school;
             } );
+        case 'SET_COURSES':
+                return action.courses
         default:
             return state;
     } 
