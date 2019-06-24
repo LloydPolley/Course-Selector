@@ -94,7 +94,6 @@ export const startSetCourses = () => {
     return (dispatch) => {
         return database.ref('courses').once('value').then((snapshot)=>{
             const courses = [];
-            console.log('start set course run')
 
             snapshot.forEach((childSnapshot)=>{
                 courses.push({

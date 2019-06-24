@@ -7,11 +7,11 @@ import {removeSchool} from '../../actions/school';
 const SchoolEditList = (props) => {
     return(
         <ul className="school-list">
-            {props.schools.map((school)=>{
+            {/* {props.schools.map((school)=>{
                 return <li key={school}><p>{school}</p> <button onClick={()=>{
                     props.dispatch(removeSchool(school));
                 }}>Remove</button></li>
-            })}
+            })} */}
         </ul>
     )
 }

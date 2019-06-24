@@ -85,7 +85,7 @@ class CourseForm extends React.Component {
           </select>
           
           <textarea placeholder="Course description" onChange={this.onCourseDescription} value={this.state.courseDescription}/>
-          <SchoolDropdown value={this.state.school} onChange={this.onSchool}/>
+          {/* <SchoolDropdown value={this.state.school} onChange={this.onSchool}/> */}
           <button onClick={this.onSubmit}>+</button>
         </form>
       </div>
