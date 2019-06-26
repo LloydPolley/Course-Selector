@@ -15,16 +15,16 @@ import database from '../firebase/firebase';
 //component dispatches FUNCTION
 //function runs
 
-export const addSchool = (school = "", id) => ({
+export const addSchool = (school) => ({
   type: "ADD_SCHOOL",
-  id,
   school
 });
 
 export const startAddSchool = (school) => {
   return (dispatch) => {
       return database.ref('schools').push(school).then((ref)=>{
-          dispatch(addSchool(school, ref.key));
+        console.log(ref.key);
+        dispatch(addSchool({id: ref.key, school}));
       });
   }
 }
@@ -39,23 +39,30 @@ export const getSchools = (schools) => ({
   schools
 });
 
+export const getVisibleSchools = (schools) => {
+  return schools;
+}
+
 export const setSchools = (schools) => ({
   type: 'SET_SCHOOLS',
   schools
 });
 
 export const startSetSchools = () => {
+  console.log('run')
   return (dispatch) => {
       return database.ref('schools').once('value').then((snapshot)=>{
           const schools = [];
-
           snapshot.forEach((childSnapshot)=>{
+            console.log('Snapshot', childSnapshot)
               schools.push({
                   id: childSnapshot.key,
                   ...childSnapshot.val()
               })
-          })
+          });
           dispatch(setSchools(schools));
       })
   }
 };
+
+

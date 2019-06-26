@@ -17,7 +17,6 @@ const CourseList = (props) => (
 
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return{
         courses: getVisibleCourses(state.courses, state.filters)
     }

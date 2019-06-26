@@ -81,7 +81,7 @@ export const getVisibleCourses = (courses, filters) => {
         if(filters.sortBy === 'courseName'){
             return a.courseName > b.courseName ? 1 : -1; 
         }
-    })
+    }) 
 }
 
 

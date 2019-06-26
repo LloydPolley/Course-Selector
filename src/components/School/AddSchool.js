@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
+import uuid from "uuid";
+
+
 import "../../styles/nav.css";
 import "../../styles/schools.css";
 import { connect } from "react-redux";
-import { startAddSchool, startSetSchools, getSchools, addSchool } from '../../actions/school';
+import { addSchool, startAddSchool, startSetSchools} from '../../actions/school';
 import SchoolEditList from './SchoolEditList';
-
-
 
 class AddSchool extends React.Component {
     constructor(props){
@@ -17,6 +18,11 @@ class AddSchool extends React.Component {
             schools: {}
         }
     }
+
+    componentDidMount() {
+        // console.log('loaded');
+        // startSetSchools();
+    }
     
     render(){
         return(
@@ -24,14 +30,16 @@ class AddSchool extends React.Component {
                 <h1>Edit school</h1>
                 <SchoolEditList/>
                 <form>
-                    <input onChange={(e) =>{
+                    <input id="" onChange={(e) =>{
                         this.setState({
                             newSchool: e.target.value
                         });
                     }} placeholder='New school'/>
                     <button onClick={(e)=>{
+                        // console.log(this.props)
                         e.preventDefault();
-                        this.props.dispatch(addSchool(this.state.newSchool));
+                        // console.log(addSchool({school: this.state.newSchool}));
+                        this.props.dispatch(startAddSchool(this.state.newSchool));
                     }}>Add School</button>
                 </form> 
             </div>
@@ -40,18 +48,12 @@ class AddSchool extends React.Component {
 }
 
 
-
 const mapStateToProps = state => {
-    console.log('school',state)
+    // console.log('school',state)
     return {
-        schools: getSchools()
+        state
     };
 };
 
-// const mapStateToProps = (state) => {
-//     return{
-//         courses: getVisibleCourses(state.courses, state.filters)
-//     }
-// }
 
 export default connect(mapStateToProps)(AddSchool);
