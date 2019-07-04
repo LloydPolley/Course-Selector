@@ -9,6 +9,7 @@ import "../../styles/schools.css";
 import { connect } from "react-redux";
 import { addSchool, startAddSchool, startSetSchools} from '../../actions/school';
 import SchoolEditList from './SchoolEditList';
+import store from "../../store/store";
 
 class AddSchool extends React.Component {
     constructor(props){
@@ -20,15 +21,14 @@ class AddSchool extends React.Component {
     }
 
     componentDidMount() {
-        // console.log('loaded');
-        // startSetSchools();
+        store.dispatch(startSetSchools());
     }
     
     render(){
         return(
             <div id="school-container" className='page-container'>
                 <h1>Edit school</h1>
-                <SchoolEditList/>
+                <SchoolEditList />
                 <form>
                     <input id="" onChange={(e) =>{
                         this.setState({
@@ -36,9 +36,7 @@ class AddSchool extends React.Component {
                         });
                     }} placeholder='New school'/>
                     <button onClick={(e)=>{
-                        // console.log(this.props)
                         e.preventDefault();
-                        // console.log(addSchool({school: this.state.newSchool}));
                         this.props.dispatch(startAddSchool(this.state.newSchool));
                     }}>Add School</button>
                 </form> 

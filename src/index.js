@@ -5,7 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 //screen showing 
-import { startSetCourses } from './actions/course';
+import { startSetCourses, startSetFunctions } from './actions/course';
+import { startSetSchools } from './actions/school';
 import store from "./store/store";
 
 

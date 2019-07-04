@@ -22,7 +22,7 @@ export const addSchool = (school) => ({
 
 export const startAddSchool = (school) => {
   return (dispatch) => {
-      return database.ref('schools').push(school).then((ref)=>{
+      return database.ref('schools').push({school}).then((ref)=>{
         console.log(ref.key);
         dispatch(addSchool({id: ref.key, school}));
       });

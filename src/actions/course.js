@@ -1,5 +1,6 @@
 import uuid from "uuid";
 import database from '../firebase/firebase';
+import {startSetSchools} from './school';
 //Redux way
 
 //component calls action generator
@@ -105,4 +106,10 @@ export const startSetCourses = () => {
         })
     }
 };
+
+
+export const startSetFunctions = () => {
+    startSetCourses();
+    startSetSchools();
+}
 
