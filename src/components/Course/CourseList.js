@@ -8,8 +8,6 @@ import CourseItem from './CourseItem';
 const CourseList = (props) => (
     <div>
         {props.courses.map((course)=>{
-            console.log(props.courses);
-            console.log(props)
             return <CourseItem key={course.id} course={course}/>
         })}
     </div>

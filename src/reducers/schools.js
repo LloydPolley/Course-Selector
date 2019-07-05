@@ -10,7 +10,7 @@ const schoolsReducer = ( state = schoolsReducerDefaultState, action ) => {
             ]
         case 'REMOVE_SCHOOL':
             return state.filter((school) => {
-                return school !== action.school;
+                return school.id !== action.school;
             } );
         case 'SET_SCHOOLS':
                 return action.schools

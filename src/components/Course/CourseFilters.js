@@ -19,7 +19,6 @@ class CourseFilters extends React.Component {
       () => {
         if (this.state.sortBy === "language") {
             this.props.dispatch(sortByLanguage());
-          console.log(this.props);
         } else if (this.state.sortBy === "school") {
             this.props.dispatch(sortBySchool());
         }
@@ -61,7 +60,6 @@ class CourseFilters extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.filters, "filters");
   return {
       filter: state.filters
   };

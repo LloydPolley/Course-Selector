@@ -22,8 +22,6 @@ const EditCourse = (props) => {
         props.history.push('/');
       }} />
      <button onClick={()=>{
-       console.log(props.course.id);
-       console.log(props);
        props.startRemoveCourse(props.course.id);
        props.history.push('/');
      }}>Delete course</button>
