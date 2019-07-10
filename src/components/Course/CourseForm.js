@@ -46,6 +46,10 @@ class CourseForm extends React.Component {
     this.setState(() => ({ school }));
   };
 
+  componentDidMount() {
+    this.props.dispatch(startSetSchools());
+  }
+
   onSubmit = e => {
     e.preventDefault();
     console.log("click");

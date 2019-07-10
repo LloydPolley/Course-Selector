@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import coursesReducer from "../reducers/courses";
 import filtersReducer from "../reducers/filters";
 import schoolsReducer from '../reducers/schools';
+import authReducer from '../reducers/auth';
 import thunk from 'redux-thunk';
 
 import { startSetCourses, getVisibleCourses } from "../actions/course";
@@ -14,7 +15,8 @@ const store = createStore(
   combineReducers({
     courses: coursesReducer,
     filters: filtersReducer,
-    schools: schoolsReducer
+    schools: schoolsReducer,
+    auth: authReducer
   }),
   composeEnhancers(applyMiddleware(thunk))
 );

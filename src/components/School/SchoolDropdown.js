@@ -5,7 +5,6 @@ import "../../styles/CourseForm.css";
 
 const SchoolDropdown = props => {
   if(props.schools.length !== 0 ){
-    console.log('if', props.value);
     return (
       <select value={props.value} onChange={props.onChange}>
         <option value="no-value">
@@ -14,7 +13,6 @@ const SchoolDropdown = props => {
         {props.schools.map(school => {
           return <option key={school.id}>{school.school}</option>;
         })}
-        {console.log(props)}
       </select>
     );
   } else{

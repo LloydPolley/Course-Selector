@@ -20,7 +20,8 @@ export const addCourse = course => ({
 });
 
 export const startAddCourse = (expenseData = {}) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const {
       courseLang = "en",
       courseName = "",
@@ -38,7 +39,7 @@ export const startAddCourse = (expenseData = {}) => {
       school
     };
     database
-      .ref("courses")
+      .ref(`users/${uid}/courses`)
       .push(course)
       .then(ref => {
         dispatch(
@@ -51,9 +52,10 @@ export const startAddCourse = (expenseData = {}) => {
   };
 };
 export const startRemoveCourse = id => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref("courses")
+      .ref(`users/${uid}/courses`)
       .child(id)
       .remove()
       .then(ref => {
@@ -74,9 +76,10 @@ export const removeCourse = ({ id }) => ({
 });
 
 export const startEditCourse = (id, updates) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref("courses")
+      .ref(`users/${uid}/courses`)
       .child(id)
       .update(updates)
       .then(ref => {
@@ -111,9 +114,10 @@ export const setCourses = courses => ({
 });
 
 export const startSetCourses = () => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref("courses")
+      .ref(`users/${uid}/courses`)
       .once("value")
       .then(snapshot => {
         const courses = [];
