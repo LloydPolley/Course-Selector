@@ -6,7 +6,7 @@ export const LoginPage = (props) => (
     <div className="page-container">
         <button onClick={() => {
             props.startLogin()
-        }}>Login</button>
+        }}>Login with Google</button>
     </div>
 );
 
