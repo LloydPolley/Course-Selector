@@ -1,7 +1,7 @@
 import React from "react";
 import CourseForm from "../Course/CourseForm";
 import "../../styles/nav.css";
-import { connect } from "react-redux";
+import { connect } from "react-redux"; 
 import { startAddCourse } from '../../actions/course';
 
 const AddCourse = (props) => {

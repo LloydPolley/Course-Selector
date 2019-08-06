@@ -1,56 +1,75 @@
 import React from "react";
+import ReactDOM from "react-dom";
+
+import uuid from "uuid";
+
 import "../../styles/nav.css";
 import "../../styles/schools.css";
 import { connect } from "react-redux";
-import { addSchool } from '../../actions/school';
-import SchoolEditList from './SchoolEditList';
-
+import {
+  addSchool,
+  startAddSchool,
+  startSetSchools
+} from "../../actions/school";
+import SchoolEditList from "./SchoolEditList";
+import store from "../../store/store";
 
 class AddSchool extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            newSchool: '',
-            schools: {}
-        }
-    }
-    onClick = (e) =>{
-        e.preventDefault();
-        this.props.dispatch(addSchool(this.state.newSchool));
-        // console.log(this.props)
-        // this.props.history.push('/');
+  constructor(props) {
+    super(props);
+    this.state = {
+      newSchool: "",
+      schools: {}
+    };
+  }
 
-    }
-    getSchool = (e) => {
-        this.setState({
-            newSchool: e.target.value
-        },()=>{
-            console.log(this.state);
-        });
-    }
-    render(){
-        return(
-            <div className='page-container'>
-                <h1>Edit school</h1>
-                <SchoolEditList/>
-                <form>
-                    <input onChange={(e) =>{
-                        this.getSchool(e);
-                    }} placeholder='New school'/>
-                    <button onClick={(e)=>{
-                        this.onClick(e);
-                    }}>Add School</button>
-                </form> 
-            </div>
-        );
-    }
+  componentDidMount() {
+    store.dispatch(startSetSchools());
+  }
+
+  render() {
+    return (
+      <div id="school-container" className="page-container">
+        <h1>Edit school</h1>
+        <SchoolEditList />
+        <form>
+          <input
+            id=""
+            onChange={e => {
+              this.setState({
+                newSchool: e.target.value
+              });
+            }}
+            placeholder="New school"
+            value={this.state.newSchool}
+          />
+          <button
+            onClick={e => {
+              e.preventDefault();
+              this.props
+                .dispatch(startAddSchool(this.state.newSchool))
+                .then(() => {
+                  this.setState({
+                    newSchool: ""
+                  });
+                });
+
+              // console.log(this.state);
+            }}
+          >
+            Add School
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-    console.log(state.schools, "Add SChool page");
-    return {
-        schools: state.schools
-    };
+  // console.log('school',state)
+  return {
+    state
   };
+};
 
 export default connect(mapStateToProps)(AddSchool);

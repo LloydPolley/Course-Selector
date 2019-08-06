@@ -17,17 +17,11 @@ var config = {
 firebase.initializeApp(config);
 
 const database = firebase.database();
+const googleAuthProvider  = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, database as default };
+export { firebase, googleAuthProvider, database as default };
 
-// function addSchool(schoolName) {
-//   database.ref(`schools/`).push(schoolName);
-// }
-// database.ref().on('value', function(snapshot){
-//   // console.log(snapshot.val());
-// })
-// addSchool('London');
-// addSchool('la');
+
 
 
 

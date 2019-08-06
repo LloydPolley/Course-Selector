@@ -1,21 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import '../../styles/CourseForm.css'
+import "../../styles/CourseForm.css";
 
-const SchoolDropdown = props => (
-    <select value={props.value} onChange={props.onChange}>
-      <option value="no-value" disabled>
-        Select school
-      </option>
-      {props.schools.map(school => {
-        return <option key={school}>{school}</option>;
-      })}
-    </select>
-);
+const SchoolDropdown = props => {
+  if(props.schools.length !== 0 ){
+    return (
+      <select value={props.value} onChange={props.onChange}>
+        <option value="no-value">
+          Select school
+        </option>
+        {props.schools.map(school => {
+          return <option key={school.id}>{school.school}</option>;
+        })}
+      </select>
+    );
+  } else{
+    return (
+      <p>No schools found</p>
+    )
+  }
+};
 
 const mapStateToProps = state => {
-  console.log(state.schools, 'schoolList');
   return {
     schools: state.schools
   };
